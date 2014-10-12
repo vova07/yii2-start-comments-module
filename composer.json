@@ -1,0 +1,26 @@
+{
+    "name": "vova07/yii2-start-comments-module",
+    "description": "The comments module for Yii2-Start application.",
+    "type": "yii2-extension",
+    "keywords": ["yii2", "comments", "module", "yii 2", "yii2-start"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Crudu Vasile",
+            "email": "bazillio07@yandex.ru"
+        }
+    ],
+    "require": {
+        "vova07/yii2-start": "*",
+        "vova07/yii2-start-base": "*",
+        "vova07/yii2-start-users-module": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "vova07\\comments\\": ""
+        }
+    },
+    "extra": {
+        "bootstrap": "vova07\\comments\\Bootstrap"
+    }
+}
