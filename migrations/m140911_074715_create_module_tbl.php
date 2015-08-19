@@ -19,14 +19,18 @@ class m140911_074715_create_module_tbl extends Migration
      */
     public function safeUp()
     {
-        // MySql table options
-        $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
+      $tableOptions = null;
 
+        // MySql table options
+        if ($this->db->driverName === 'mysql') {
+            // http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+        }
         // Comment models table
         $this->createTable('{{%comments_models}}', [
             'id' => Schema::TYPE_INTEGER . ' UNSIGNED NOT NULL PRIMARY KEY',
             'name' => Schema::TYPE_STRING . '(255) NOT NULL',
-            'status_id' => 'tinyint(1) NOT NULL DEFAULT 1',
+            'status_id' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 1',
             'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
             'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL'
         ], $tableOptions);
