@@ -1,3 +1,5 @@
+# WARNING: This extension is not more maintained
+
 Yii2-Start comments module.
 ==========================
 This module provide a comments managing system for Yii2-Start application.
